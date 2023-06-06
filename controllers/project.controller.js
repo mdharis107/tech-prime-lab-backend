@@ -96,7 +96,7 @@ const getProject = async (req, res) => {
 
 const countProjects = async (req, res) => {
   const currentDate = new Date();
-  //   console.log(currentDate);
+    console.log(currentDate);
 
   const totalProjects = await ProjectModel.countDocuments();
 
@@ -113,7 +113,7 @@ const countProjects = async (req, res) => {
   });
 
   const delayProject = await ProjectModel.countDocuments({
-    EndDate: { $gt: currentDate },
+    EndDate: { $lt: currentDate },
   });
 
   const count = [
